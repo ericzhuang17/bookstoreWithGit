@@ -16,7 +16,12 @@ class CsvReader
     end  
 
     def storeData
-    end
+       f = File.new("temp.csv",  "w")
+       @books_in_stock.each_value do |b| 
+            f.puts "#{b.isbn},#{b.title},#{b.price},#{b.author}"
+       end
+       File.rename("temp.csv",@data_file)
+    end  
 
     def isbnSearch isbn
        @books_in_stock[isbn]

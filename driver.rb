@@ -1,3 +1,4 @@
+require_relative 'commands/update_book_command'
 require_relative 'csv_reader'
 require_relative 'commands/author_search_command'
 require_relative 'commands/isbn_search_command'
@@ -7,10 +8,11 @@ data_source = CsvReader.new(ARGV[0])
 data_source.loadData
 
 commands = [
-	AuthorSearchCommand.new(data_source),  
-	ISBNSearchCommand.new(data_source),
-	QuitCommand.new(data_source)
-]	
+    AuthorSearchCommand.new(data_source),  
+    ISBNSearchCommand.new(data_source),
+    UpdateBookCommand.new(data_source),
+    QuitCommand.new(data_source)
+]    
 last_command = commands.size() -1
 
 quit = false
