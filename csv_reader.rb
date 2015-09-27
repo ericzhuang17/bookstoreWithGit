@@ -15,18 +15,16 @@ class CsvReader
       end
     end  
 
+    def storeData
+    end
+
     def isbnSearch isbn
        @books_in_stock[isbn]
     end 
 
     def authorSearch(name)
-       matches = []
-       @books_in_stock.each do |isbn, book|
-         if book.author == name
-            matches << book
-         end
-       end
-       matches
-     end
+       matches = @books_in_stock.select {|isbn,book| book.author == name}
+       matches.values
+    end
 
 end 
