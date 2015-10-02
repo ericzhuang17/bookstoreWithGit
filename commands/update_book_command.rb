@@ -30,6 +30,7 @@ class UpdateBookCommand < UserCommand
         print "Price (#{book.price}) ?"
         response = STDIN.gets.chomp 
         book.price = response.to_f if response.length > 0 
+        @data_source.updateBook book 
       else
         puts 'Invalid ISBN'
       end

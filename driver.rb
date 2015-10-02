@@ -1,10 +1,10 @@
 require_relative 'commands/update_book_command'
-require_relative 'csv_reader'
+require_relative 'sqlite_persistence'
 require_relative 'commands/author_search_command'
 require_relative 'commands/isbn_search_command'
 require_relative 'commands/quit_command'
 
-data_source = CsvReader.new(ARGV[0])
+data_source = SQLitePersistence.new (ARGV[0])
 data_source.loadData
 
 commands = [
